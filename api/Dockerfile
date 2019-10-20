@@ -11,7 +11,8 @@ RUN apk add --no-cache make gcc g++ python git
 RUN yarn global add pm2
 
 # Create app directory
-WORKDIR /usr/src/api
+# WORKDIR /usr/src/api
+WORKDIR /usr/src/rad-feed
 
 # Copy package.json for build
 COPY package.json ./

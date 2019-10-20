@@ -29,7 +29,7 @@ docker login radfeedcontainer.azurecr.io --username radfeedcontainer
 Password: sly7nBtp/27vx5xK6YuD3Rms17cNlrBL
 Login Succeeded ...
 docker build -t radfeedcontainer.azurecr.io/rad-feed:staging .
-docker push radfeedcontainer.azurecr.io/rad-feed:latest
+docker push radfeedcontainer.azurecr.io/rad-feed:staging
 docker images | egrep radfeedcontainer.azurecr.io
 
 image='radfeedcontainer.azurecr.io/rad-feed:staging'

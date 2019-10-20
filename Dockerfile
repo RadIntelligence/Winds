@@ -11,7 +11,7 @@ RUN apk add --no-cache make gcc g++ python git
 RUN yarn global add pm2
 
 # Create app directory
-WORKDIR /usr/src/winds
+WORKDIR /usr/src/rad-feed
 
 # Copy app source code
 COPY . .
