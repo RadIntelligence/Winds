@@ -24,18 +24,18 @@ services:
     environment:
       NODE_ENV: production
       DOCKER: 'true'
-      PRODUCT_URL: 'https://getstream.io/winds'
-      PRODUCT_NAME: Winds
-      PRODUCT_AUTHOR: Stream
-      DATABASE_URI: 'mongodb://database/WINDS'
+      PRODUCT_URL: 'https://radinfluencer.com'
+      PRODUCT_NAME: RadFeed
+      PRODUCT_AUTHOR: RadIntelligence
+      DATABASE_URI: 'mongodb://database/rad_feed_staging'
       CACHE_URI: 'redis://cache:6379'
-      JWT_SECRET: INSERT_JWT_SECRET_HERE
+      JWT_SECRET: UdSXHuC+/KchK5Js3o7mwByAQUs8sohwZUg4AFKAui1RlfXTzcoSY4GqeIgNHO6ZvRX2sgZNzITJ/0HsrMwEjNgPK7ipQTu5/SLBTJyqAbhLrHM7heTtphCQZMqqXKJZxlvQh/UeGmoa+g2lxG0vUSVEFiaa37ucSYITw1EsYh5iWf6dhZkwW3MUJJvkQdlu/8RrHB4/bvhk00oKCyTfjRxInNSqJQZuoU3c1A==
       API_PORT: 8080
-      STREAM_API_BASE_URL: 'https://windspersonalization.getstream.io/personalization/v1.0'
-      STREAM_APP_ID: INSERT_STREAM_API_ID_HERE
-      STREAM_API_KEY: INSERT_STREAM_API_KEY_HERE
-      STREAM_API_SECRET: INSERT_STREAM_API_SECRET_HERE
-      ALGOLIA_WRITE_KEY: INSERT_ALGOLIA_WRITE_KEY_HERE
+      STREAM_API_BASE_URL: 'https://us-east-api.stream-io-api.com/api/v1.0/'
+      STREAM_APP_ID: 61987
+      STREAM_API_KEY: gxef8x2sm67t
+      STREAM_API_SECRET: fc6kmy9dsj2rxdm4kxz73hdjty7e245fhyegfknugygyk3nc7umst5mwg4xgvxhk
+      ALGOLIA_WRITE_KEY: 565915075aa73b77aa45ee6c21b76fb1
   cache:
     image: 'redis:alpine'
     ports:

@@ -1,3 +1,38 @@
+DOCKER INSTALL 
+$ docker-machine create --driver virtualbox default && docker-machine env default && eval "$(docker-machine env default)" && docker run hello-world && docker-machine stop default
+
+
+DOCKER 
+FROM node:8
+# Create app directory
+WORKDIR /usr/src/app
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
+# Bundle app source
+COPY . .
+EXPOSE 8000
+CMD [ "npm", "start" ]
+
+
+URL
+https://azapp-rad-feed-staging.azurewebsites.net
+App Service Plan
+azplan-rad-feed-staging-001
+
+docker login radfeedcontainer.azurecr.io --username radfeedcontainer
+Password: sly7nBtp/27vx5xK6YuD3Rms17cNlrBL
+Login Succeeded ...
+docker build -t radfeedcontainer.azurecr.io/rad-feed:latest .
+docker push radfeedcontainer.azurecr.io/rad-feed:latest
+docker images | egrep radfeedcontainer.azurecr.io
+
+------------------------------------------------------>
+
 Generated analytics token:
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZSI6ImFuYWx5dGljcyIsImFjdGlvbiI6IioiLCJ1c2VyX2lkIjoiKiJ9.rDp02BSBaQGtxmLbqQ-TzxLJlZypXNrAwvUbdI19Cag'
 
