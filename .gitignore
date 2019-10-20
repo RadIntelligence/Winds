@@ -102,3 +102,4 @@ sign.js
 app/latest.html
 #IDE
 .vscode
+quickrun.yaml
