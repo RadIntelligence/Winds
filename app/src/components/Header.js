@@ -22,7 +22,7 @@ import AddOPMLModal from './AddOPMLModal';
 class Header extends Component {
 	constructor(props) {
 		super(props);
-
+		console.log('Header.js :: constructor > props', props);
 		this.state = {
 			editProfileDrawerIsOpen: false,
 			githubPopoverIsOpen: false,
@@ -176,7 +176,8 @@ class Header extends Component {
 			<header className="header">
 				<div className="title">
 					<a href="https://getstream.io/?utm_source=Winds&utm_medium=Winds&utm_content=winds_homepage">
-						Winds {config.version} – Powered by GetStream.io
+						Signed in as {this.props.user.username} &bull;{' '}
+						<b>{this.props.user.email}</b>
 					</a>
 				</div>
 				<div className="header-content">

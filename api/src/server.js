@@ -13,6 +13,8 @@ import logger from './utils/logger';
 import { startSampling } from './utils/watchdog';
 import { setupExpressRequestHandler, setupExpressErrorHandler } from './utils/errors';
 import User from './models/user';
+// import generateSwagger from './models/generate_swagger';
+// generateSwagger();
 
 const api = express();
 

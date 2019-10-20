@@ -12,7 +12,7 @@
 		"test_deep": "NODE_ENV=test node --max-old-space-size=16384 --optimize-for-size --stack_trace_limit=200 -r trace -r clarify node_modules/mocha/bin/_mocha --timeout 45000 --require test-entry.js \"test/**/*.js\""
 	},
 	"bin": {
-		"winds": "src/commands/winds.js"
+    "winds": "src/commands/winds.js"
 	},
 	"nyc": {
 		"sourceMap": false,
@@ -62,6 +62,7 @@
 		"mongoose-bcrypt": "^1.6.0",
 		"mongoose-string-query": "^0.2.7",
 		"mongoose-timestamp": "^0.6.0",
+		"mongoose-to-swagger": "^0.0.4",
 		"multer": "^1.4.1",
 		"node-opml-parser": "^1.0.0",
 		"node-statsd": "^0.1.1",

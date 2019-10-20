@@ -361,6 +361,9 @@ class UserProfileSettingsDrawer extends React.Component {
 						src={closeIcon}
 					/>
 				</header>
+				<p>
+					<small>id: {this.props._id}</small>
+				</p>
 				<ul className="tabs">
 					<li
 						className={`tab ${

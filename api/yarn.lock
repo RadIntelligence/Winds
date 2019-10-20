@@ -3525,10 +3525,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-getstream@^4.2.4:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/getstream/-/getstream-4.2.4.tgz#08b07032daeea1c1fc45a624f7017063d058d9a6"
-  integrity sha512-oEzzeCs7sMhn8bpw7Hey1XUS2+ha9feu7Jh6NLlT60p6eHr3o2cAiaEVTBnpM3lI2AJtKxJqGVCn/i9lsWfMVw==
+getstream@^4.2.5:
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/getstream/-/getstream-4.2.5.tgz#da18305b322ec613d97b50dbd9416e40af990a7c"
+  integrity sha512-O9TQ5Rsx8DZjQ14sdINRxSXkh4bz3Kj+oq7yDbWsKZAX6Gt9KT6AKNT2dynpkmh3qclbwONEDtcMBlwnrRFvFA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@stream-io/cross-fetch" "^3.0.1"
@@ -5356,6 +5356,11 @@ mongoose-timestamp@^0.6.0:
   integrity sha1-2lQRDKjm1MK5lXoDZoNsNi7Scr4=
   dependencies:
     defaults "^1.0.3"
+
+mongoose-to-swagger@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/mongoose-to-swagger/-/mongoose-to-swagger-0.0.4.tgz#2db9e65ead477bd17660c75451a11c6ffc802695"
+  integrity sha512-Pfa//lKop2sngZt0+O86O0KlX0xb4npcpEd2N8V8s5CvfzvHZ1co2kLR+wCalWtf+bG5flhscQjCU7IorMO0BA==
 
 "mongoose@3.8.* || >=4":
   version "5.4.18"
