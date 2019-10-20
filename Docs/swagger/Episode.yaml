@@ -1,0 +1,68 @@
+---
+  title: "Episode"
+  properties: 
+    podcast: 
+      type: "string"
+    duplicateOf: 
+      type: "string"
+    url: 
+      type: "string"
+    canonicalUrl: 
+      type: "string"
+    fingerprint: 
+      type: "string"
+    guid: 
+      type: "string"
+    link: 
+      type: "string"
+    enclosure: 
+      type: "string"
+    enclosures: 
+      type: "array"
+      items: 
+        properties: 
+          url: 
+            type: "string"
+          type: 
+            type: "string"
+          length: 
+            type: "string"
+          _id: 
+            type: "string"
+    title: 
+      type: "string"
+    description: 
+      type: "string"
+    images.featured: 
+      type: "string"
+    images.banner: 
+      type: "string"
+    images.favicon: 
+      type: "string"
+    images.og: 
+      type: "string"
+    duration: 
+      type: "string"
+    publicationDate: 
+      type: "string"
+      format: "date-time"
+    likes: 
+      type: "number"
+    valid: 
+      type: "boolean"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "podcast"
+    - "url"
+    - "fingerprint"
+    - "title"
+

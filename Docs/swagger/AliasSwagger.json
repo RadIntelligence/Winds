@@ -1,0 +1,15 @@
+{
+	"title": "Alias",
+	"properties": {
+		"user": { "type": "string" },
+		"rss": { "type": "string" },
+		"podcast": { "type": "string" },
+		"alias": { "type": "string" },
+		"_id": { "type": "string" },
+		"updatedAt": { "type": "string", "format": "date-time" },
+		"createdAt": { "type": "string", "format": "date-time" },
+		"__v": { "type": "number" }
+	},
+
+	"required": ["user", "alias"]
+}

@@ -1,0 +1,651 @@
+openapi: 3.0.0
+servers:
+  - description: Rad Influencer API
+    url: https://api.radinfluencer.com/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/RadIntelligence/rad-influencer-platform/1.0.0
+info:
+  description: This is the Rad Influencer API
+  version: '1.0.0'
+  title: Rad Influencer Public API
+  contact:
+    email: nicholas.t@radinfluencer.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: developers
+    description: Operations available to regular developers
+  - name: admins
+    description: Secured Admin-only calls
+paths:
+  '/rss-feeds':
+    get:
+      tags:
+        - developers
+      summary: Retrieve all RSS feeds
+      operationId: getAllRssFeeds
+      description: |
+        By passing in the appropriate options, you can search for
+        available feeds in the system
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up RSS feeds
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: offset
+          description: Offset in pagination results
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RssFeed'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - admins
+      summary: Add an RSS Feed
+      operationId: addRSSFeed
+      description: Adds an item to the system
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RssFeed'
+        description: Rss Feed item to add
+components:
+  schemas:
+    Alias:
+      properties:
+        user:
+          type: 'string'
+        rss:
+          type: 'string'
+        podcast:
+          type: 'string'
+        alias:
+          type: 'string'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'alias'
+    Article:
+      properties:
+        rss:
+          type: 'string'
+        duplicateOf:
+          type: 'string'
+        url:
+          type: 'string'
+        canonicalUrl:
+          type: 'string'
+        fingerprint:
+          type: 'string'
+        guid:
+          type: 'string'
+        link:
+          type: 'string'
+        title:
+          type: 'string'
+        description:
+          type: 'string'
+        content:
+          type: 'string'
+        commentUrl:
+          type: 'string'
+        images.featured:
+          type: 'string'
+        images.banner:
+          type: 'string'
+        images.favicon:
+          type: 'string'
+        images.og:
+          type: 'string'
+        publicationDate:
+          type: 'string'
+          format: 'date-time'
+        enclosures:
+          type: 'array'
+          items:
+            properties:
+              url:
+                type: 'string'
+              type:
+                type: 'string'
+              length:
+                type: 'string'
+              _id:
+                type: 'string'
+        likes:
+          type: 'number'
+        socialScore.reddit:
+          type: 'number'
+        socialScore.hackernews:
+          type: 'number'
+        valid:
+          type: 'boolean'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'rss'
+        - 'url'
+        - 'fingerprint'
+        - 'title'
+    Content:
+      properties:
+        url:
+          type: 'string'
+        title:
+          type: 'string'
+        excerpt:
+          type: 'string'
+        content:
+          type: 'string'
+        image:
+          type: 'string'
+        publicationDate:
+          type: 'string'
+          format: 'date-time'
+        enclosures:
+          type: 'array'
+          items:
+            type: 'object'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'url'
+        - 'title'
+        - 'excerpt'
+        - 'content'
+    Episode:
+      properties:
+        podcast:
+          type: 'string'
+        duplicateOf:
+          type: 'string'
+        url:
+          type: 'string'
+        canonicalUrl:
+          type: 'string'
+        fingerprint:
+          type: 'string'
+        guid:
+          type: 'string'
+        link:
+          type: 'string'
+        enclosure:
+          type: 'string'
+        enclosures:
+          type: 'array'
+          items:
+            properties:
+              url:
+                type: 'string'
+              type:
+                type: 'string'
+              length:
+                type: 'string'
+              _id:
+                type: 'string'
+        title:
+          type: 'string'
+        description:
+          type: 'string'
+        images.featured:
+          type: 'string'
+        images.banner:
+          type: 'string'
+        images.favicon:
+          type: 'string'
+        images.og:
+          type: 'string'
+        duration:
+          type: 'string'
+        publicationDate:
+          type: 'string'
+          format: 'date-time'
+        likes:
+          type: 'number'
+        valid:
+          type: 'boolean'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'podcast'
+        - 'url'
+        - 'fingerprint'
+        - 'title'
+    Folder:
+      properties:
+        user:
+          type: 'string'
+        rss:
+          type: 'array'
+          items:
+            type: 'object'
+        podcast:
+          type: 'array'
+          items:
+            type: 'object'
+        name:
+          type: 'string'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'name'
+    Follow:
+      properties:
+        user:
+          type: 'string'
+        followee:
+          type: 'string'
+        podcast:
+          type: 'string'
+        rss:
+          type: 'string'
+        feed:
+          type: 'string'
+          enum:
+            - 'rss'
+            - 'podcast'
+            - 'timeline'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+    Listen:
+      properties:
+        user:
+          type: 'string'
+        episode:
+          type: 'string'
+        duration:
+          type: 'number'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'episode'
+        - 'duration'
+    Note:
+      properties:
+        user:
+          type: 'string'
+        episode:
+          type: 'string'
+        article:
+          type: 'string'
+        start:
+          type: 'number'
+        end:
+          type: 'number'
+        text:
+          type: 'string'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'start'
+        - 'end'
+    Pin:
+      properties:
+        user:
+          type: 'string'
+        article:
+          type: 'string'
+        episode:
+          type: 'string'
+        url:
+          type: 'string'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+    Playlist:
+      properties:
+        user:
+          type: 'string'
+        name:
+          type: 'string'
+        episodes:
+          type: 'array'
+          items:
+            type: 'object'
+        likes:
+          type: 'number'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'name'
+    Podcast:
+      properties:
+        duplicateOf:
+          type: 'string'
+        url:
+          type: 'string'
+        canonicalUrl:
+          type: 'string'
+        feedUrl:
+          type: 'string'
+        feedUrls:
+          type: 'array'
+          items:
+            type: 'object'
+        fingerprint:
+          type: 'string'
+        title:
+          type: 'string'
+        description:
+          type: 'string'
+        summary:
+          type: 'string'
+        categories:
+          type: 'string'
+        featured:
+          type: 'boolean'
+        images.featured:
+          type: 'string'
+        images.banner:
+          type: 'string'
+        images.favicon:
+          type: 'string'
+        images.og:
+          type: 'string'
+        public:
+          type: 'boolean'
+        publicationDate:
+          type: 'string'
+          format: 'date-time'
+        valid:
+          type: 'boolean'
+        lastScraped:
+          type: 'string'
+          format: 'date-time'
+        interest:
+          type: 'string'
+        language:
+          type: 'string'
+        followerCount:
+          type: 'number'
+        postCount:
+          type: 'number'
+        consecutiveScrapeFailures:
+          type: 'number'
+        guidStability:
+          type: 'string'
+          enum:
+            - 'STABLE'
+            - 'UNSTABLE'
+            - 'UNCHECKED'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'feedUrl'
+        - 'title'
+    RssFeed:
+      properties:
+        duplicateOf:
+          type: 'string'
+        url:
+          type: 'string'
+        canonicalUrl:
+          type: 'string'
+        feedUrl:
+          type: 'string'
+        feedUrls:
+          type: 'array'
+          items:
+            type: 'object'
+        fingerprint:
+          type: 'string'
+        title:
+          type: 'string'
+        description:
+          type: 'string'
+        categories:
+          type: 'string'
+        featured:
+          type: 'boolean'
+        images.featured:
+          type: 'string'
+        images.banner:
+          type: 'string'
+        images.favicon:
+          type: 'string'
+        images.og:
+          type: 'string'
+        public:
+          type: 'boolean'
+        publicationDate:
+          type: 'string'
+          format: 'date-time'
+        valid:
+          type: 'boolean'
+        lastScraped:
+          type: 'string'
+          format: 'date-time'
+        likes:
+          type: 'number'
+        followerCount:
+          type: 'number'
+        postCount:
+          type: 'number'
+        summary:
+          type: 'string'
+        interest:
+          type: 'string'
+        language:
+          type: 'string'
+        consecutiveScrapeFailures:
+          type: 'number'
+        guidStability:
+          type: 'string'
+          enum:
+            - 'STABLE'
+            - 'UNSTABLE'
+            - 'UNCHECKED'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'feedUrl'
+        - 'title'
+    Tag:
+      properties:
+        user:
+          type: 'string'
+        episode:
+          type: 'array'
+          items:
+            type: 'object'
+        article:
+          type: 'array'
+          items:
+            type: 'object'
+        name:
+          type: 'string'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'user'
+        - 'name'
+    User:
+      properties:
+        email:
+          type: 'string'
+        username:
+          type: 'string'
+        password:
+          type: 'string'
+        name:
+          type: 'string'
+        bio:
+          type: 'string'
+        url:
+          type: 'string'
+        twitter:
+          type: 'string'
+        background:
+          type: 'number'
+        interests:
+          type: 'array'
+        preferences.notifications.daily:
+          type: 'boolean'
+        preferences.notifications.weekly:
+          type: 'boolean'
+        preferences.notifications.follows:
+          type: 'boolean'
+        recoveryCode:
+          type: 'string'
+        active:
+          type: 'boolean'
+        admin:
+          type: 'boolean'
+        _id:
+          type: 'string'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+        __v:
+          type: 'number'
+      required:
+        - 'email'
+        - 'username'
+        - 'password'
+        - 'name'

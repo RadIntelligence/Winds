@@ -1,0 +1,72 @@
+---
+  title: "Article"
+  properties: 
+    rss: 
+      type: "string"
+    duplicateOf: 
+      type: "string"
+    url: 
+      type: "string"
+    canonicalUrl: 
+      type: "string"
+    fingerprint: 
+      type: "string"
+    guid: 
+      type: "string"
+    link: 
+      type: "string"
+    title: 
+      type: "string"
+    description: 
+      type: "string"
+    content: 
+      type: "string"
+    commentUrl: 
+      type: "string"
+    images.featured: 
+      type: "string"
+    images.banner: 
+      type: "string"
+    images.favicon: 
+      type: "string"
+    images.og: 
+      type: "string"
+    publicationDate: 
+      type: "string"
+      format: "date-time"
+    enclosures: 
+      type: "array"
+      items: 
+        properties: 
+          url: 
+            type: "string"
+          type: 
+            type: "string"
+          length: 
+            type: "string"
+          _id: 
+            type: "string"
+    likes: 
+      type: "number"
+    socialScore.reddit: 
+      type: "number"
+    socialScore.hackernews: 
+      type: "number"
+    valid: 
+      type: "boolean"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "rss"
+    - "url"
+    - "fingerprint"
+    - "title"
+

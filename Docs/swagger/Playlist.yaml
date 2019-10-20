@@ -1,0 +1,27 @@
+---
+  title: "Playlist"
+  properties: 
+    user: 
+      type: "string"
+    name: 
+      type: "string"
+    episodes: 
+      type: "array"
+      items: 
+        type: "object"
+    likes: 
+      type: "number"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "user"
+    - "name"
+

@@ -1,0 +1,36 @@
+---
+  title: "Content"
+  properties: 
+    url: 
+      type: "string"
+    title: 
+      type: "string"
+    excerpt: 
+      type: "string"
+    content: 
+      type: "string"
+    image: 
+      type: "string"
+    publicationDate: 
+      type: "string"
+      format: "date-time"
+    enclosures: 
+      type: "array"
+      items: 
+        type: "object"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "url"
+    - "title"
+    - "excerpt"
+    - "content"
+

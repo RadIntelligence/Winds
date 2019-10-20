@@ -1,0 +1,1 @@
+{"title":"Tag","properties":{"user":{"type":"string"},"episode":{"type":"array","items":{"type":"object"}},"article":{"type":"array","items":{"type":"object"}},"name":{"type":"string"},"_id":{"type":"string"},"updatedAt":{"type":"string","format":"date-time"},"createdAt":{"type":"string","format":"date-time"},"__v":{"type":"number"}},"required":["user","name"]}

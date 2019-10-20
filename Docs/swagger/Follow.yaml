@@ -1,0 +1,30 @@
+---
+  title: "Follow"
+  properties: 
+    user: 
+      type: "string"
+    followee: 
+      type: "string"
+    podcast: 
+      type: "string"
+    rss: 
+      type: "string"
+    feed: 
+      type: "string"
+      enum: 
+        - "rss"
+        - "podcast"
+        - "timeline"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "user"
+

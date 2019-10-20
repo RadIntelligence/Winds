@@ -1,0 +1,24 @@
+---
+  title: "Pin"
+  properties: 
+    user: 
+      type: "string"
+    article: 
+      type: "string"
+    episode: 
+      type: "string"
+    url: 
+      type: "string"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "user"
+

@@ -1,0 +1,315 @@
+[
+	{
+		"title": "Alias",
+		"properties": {
+			"user": { "type": "string" },
+			"rss": { "type": "string" },
+			"podcast": { "type": "string" },
+			"alias": { "type": "string" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "alias"]
+	},
+	{
+		"title": "Article",
+		"properties": {
+			"rss": { "type": "string" },
+			"duplicateOf": { "type": "string" },
+			"url": { "type": "string" },
+			"canonicalUrl": { "type": "string" },
+			"fingerprint": { "type": "string" },
+			"guid": { "type": "string" },
+			"link": { "type": "string" },
+			"title": { "type": "string" },
+			"description": { "type": "string" },
+			"content": { "type": "string" },
+			"commentUrl": { "type": "string" },
+			"images.featured": { "type": "string" },
+			"images.banner": { "type": "string" },
+			"images.favicon": { "type": "string" },
+			"images.og": { "type": "string" },
+			"publicationDate": { "type": "string", "format": "date-time" },
+			"enclosures": {
+				"type": "array",
+				"items": {
+					"properties": {
+						"url": { "type": "string" },
+						"type": { "type": "string" },
+						"length": { "type": "string" },
+						"_id": { "type": "string" }
+					}
+				}
+			},
+			"likes": { "type": "number" },
+			"socialScore.reddit": { "type": "number" },
+			"socialScore.hackernews": { "type": "number" },
+			"valid": { "type": "boolean" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["rss", "url", "fingerprint", "title"]
+	},
+	{
+		"title": "Content",
+		"properties": {
+			"url": { "type": "string" },
+			"title": { "type": "string" },
+			"excerpt": { "type": "string" },
+			"content": { "type": "string" },
+			"image": { "type": "string" },
+			"publicationDate": { "type": "string", "format": "date-time" },
+			"enclosures": { "type": "array", "items": { "type": "object" } },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["url", "title", "excerpt", "content"]
+	},
+	{
+		"title": "Episode",
+		"properties": {
+			"podcast": { "type": "string" },
+			"duplicateOf": { "type": "string" },
+			"url": { "type": "string" },
+			"canonicalUrl": { "type": "string" },
+			"fingerprint": { "type": "string" },
+			"guid": { "type": "string" },
+			"link": { "type": "string" },
+			"enclosure": { "type": "string" },
+			"enclosures": {
+				"type": "array",
+				"items": {
+					"properties": {
+						"url": { "type": "string" },
+						"type": { "type": "string" },
+						"length": { "type": "string" },
+						"_id": { "type": "string" }
+					}
+				}
+			},
+			"title": { "type": "string" },
+			"description": { "type": "string" },
+			"images.featured": { "type": "string" },
+			"images.banner": { "type": "string" },
+			"images.favicon": { "type": "string" },
+			"images.og": { "type": "string" },
+			"duration": { "type": "string" },
+			"publicationDate": { "type": "string", "format": "date-time" },
+			"likes": { "type": "number" },
+			"valid": { "type": "boolean" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["podcast", "url", "fingerprint", "title"]
+	},
+	{
+		"title": "Folder",
+		"properties": {
+			"user": { "type": "string" },
+			"rss": { "type": "array", "items": { "type": "object" } },
+			"podcast": { "type": "array", "items": { "type": "object" } },
+			"name": { "type": "string" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "name"]
+	},
+	{
+		"title": "Follow",
+		"properties": {
+			"user": { "type": "string" },
+			"followee": { "type": "string" },
+			"podcast": { "type": "string" },
+			"rss": { "type": "string" },
+			"feed": { "type": "string", "enum": ["rss", "podcast", "timeline"] },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user"]
+	},
+	{
+		"title": "Listen",
+		"properties": {
+			"user": { "type": "string" },
+			"episode": { "type": "string" },
+			"duration": { "type": "number" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "episode", "duration"]
+	},
+	{
+		"title": "Note",
+		"properties": {
+			"user": { "type": "string" },
+			"episode": { "type": "string" },
+			"article": { "type": "string" },
+			"start": { "type": "number" },
+			"end": { "type": "number" },
+			"text": { "type": "string" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "start", "end"]
+	},
+	{
+		"title": "Pin",
+		"properties": {
+			"user": { "type": "string" },
+			"article": { "type": "string" },
+			"episode": { "type": "string" },
+			"url": { "type": "string" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user"]
+	},
+	{
+		"title": "Playlist",
+		"properties": {
+			"user": { "type": "string" },
+			"name": { "type": "string" },
+			"episodes": { "type": "array", "items": { "type": "object" } },
+			"likes": { "type": "number" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "name"]
+	},
+	{
+		"title": "Podcast",
+		"properties": {
+			"duplicateOf": { "type": "string" },
+			"url": { "type": "string" },
+			"canonicalUrl": { "type": "string" },
+			"feedUrl": { "type": "string" },
+			"feedUrls": { "type": "array", "items": { "type": "object" } },
+			"fingerprint": { "type": "string" },
+			"title": { "type": "string" },
+			"description": { "type": "string" },
+			"summary": { "type": "string" },
+			"categories": { "type": "string" },
+			"featured": { "type": "boolean" },
+			"images.featured": { "type": "string" },
+			"images.banner": { "type": "string" },
+			"images.favicon": { "type": "string" },
+			"images.og": { "type": "string" },
+			"public": { "type": "boolean" },
+			"publicationDate": { "type": "string", "format": "date-time" },
+			"valid": { "type": "boolean" },
+			"lastScraped": { "type": "string", "format": "date-time" },
+			"interest": { "type": "string" },
+			"language": { "type": "string" },
+			"followerCount": { "type": "number" },
+			"postCount": { "type": "number" },
+			"consecutiveScrapeFailures": { "type": "number" },
+			"guidStability": {
+				"type": "string",
+				"enum": ["STABLE", "UNSTABLE", "UNCHECKED"]
+			},
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["feedUrl", "title"]
+	},
+	{
+		"title": "Rss",
+		"properties": {
+			"duplicateOf": { "type": "string" },
+			"url": { "type": "string" },
+			"canonicalUrl": { "type": "string" },
+			"feedUrl": { "type": "string" },
+			"feedUrls": { "type": "array", "items": { "type": "object" } },
+			"fingerprint": { "type": "string" },
+			"title": { "type": "string" },
+			"description": { "type": "string" },
+			"categories": { "type": "string" },
+			"featured": { "type": "boolean" },
+			"images.featured": { "type": "string" },
+			"images.banner": { "type": "string" },
+			"images.favicon": { "type": "string" },
+			"images.og": { "type": "string" },
+			"public": { "type": "boolean" },
+			"publicationDate": { "type": "string", "format": "date-time" },
+			"valid": { "type": "boolean" },
+			"lastScraped": { "type": "string", "format": "date-time" },
+			"likes": { "type": "number" },
+			"followerCount": { "type": "number" },
+			"postCount": { "type": "number" },
+			"summary": { "type": "string" },
+			"interest": { "type": "string" },
+			"language": { "type": "string" },
+			"consecutiveScrapeFailures": { "type": "number" },
+			"guidStability": {
+				"type": "string",
+				"enum": ["STABLE", "UNSTABLE", "UNCHECKED"]
+			},
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["feedUrl", "title"]
+	},
+	{
+		"title": "Tag",
+		"properties": {
+			"user": { "type": "string" },
+			"episode": { "type": "array", "items": { "type": "object" } },
+			"article": { "type": "array", "items": { "type": "object" } },
+			"name": { "type": "string" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["user", "name"]
+	},
+	{
+		"title": "User",
+		"properties": {
+			"email": { "type": "string" },
+			"username": { "type": "string" },
+			"password": { "type": "string" },
+			"name": { "type": "string" },
+			"bio": { "type": "string" },
+			"url": { "type": "string" },
+			"twitter": { "type": "string" },
+			"background": { "type": "number" },
+			"interests": { "type": "mixed" },
+			"preferences.notifications.daily": { "type": "boolean" },
+			"preferences.notifications.weekly": { "type": "boolean" },
+			"preferences.notifications.follows": { "type": "boolean" },
+			"recoveryCode": { "type": "string" },
+			"active": { "type": "boolean" },
+			"admin": { "type": "boolean" },
+			"_id": { "type": "string" },
+			"updatedAt": { "type": "string", "format": "date-time" },
+			"createdAt": { "type": "string", "format": "date-time" },
+			"__v": { "type": "number" }
+		},
+		"required": ["email", "username", "password", "name"]
+	}
+]

@@ -1,0 +1,30 @@
+---
+  title: "Note"
+  properties: 
+    user: 
+      type: "string"
+    episode: 
+      type: "string"
+    article: 
+      type: "string"
+    start: 
+      type: "number"
+    end: 
+      type: "number"
+    text: 
+      type: "string"
+    _id: 
+      type: "string"
+    updatedAt: 
+      type: "string"
+      format: "date-time"
+    createdAt: 
+      type: "string"
+      format: "date-time"
+    __v: 
+      type: "number"
+  required: 
+    - "user"
+    - "start"
+    - "end"
+
