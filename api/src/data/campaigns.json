@@ -1,0 +1,85 @@
+{
+	"data":
+	[
+		{
+			"publisherid": "0a323db6-88a1-4331-ba13-36643120e5e9",
+			"SITEID": 1010,
+			"FEEDID": 1,
+			"topdomain": "joinroot.com",
+			"campaignname": "JoinRoot",
+			"sitename": "joinroot.com",
+			"license": "8DBEEC1D34CD4CBB108E635C05DD001199F3F9CBB36235F3ADEA8D4F5EC14D45",
+			"feedurl": "https://www.joinroot.com/blog/rss/",
+			"budget": 0,
+			"active": null,
+			"paused": 0,
+			"sponsored": 1,
+			"creationtime": "2019-10-22 19:00:21",
+			"pattern": null
+		},
+		{
+			"publisherid": "3d9656e9-b269-4a2b-bd75-58d1bb730917",
+			"SITEID": 4,
+			"FEEDID": 1,
+			"topdomain": "elpais.com",
+			"campaignname": "Beta Test (updated)",
+			"sitename": "elpais.com",
+			"license": "9696BAACBCD5B9397687EC1A66AF1112796F4A0DD00CD450E1B059FA9E996334",
+			"feedurl": "http://elpais.com/rss/elpais/portada-f01.xml2",
+			"budget": 5000,
+			"active": 1,
+			"paused": 0,
+			"sponsored": 0,
+			"creationtime": "2017-04-13 15:05:19",
+			"pattern": "&id_externo_rsoc=zum"
+		},
+		{
+			"publisherid": "3d9656e9-b269-4a2b-bd75-58d1bb730917",
+			"SITEID": 4,
+			"FEEDID": 2,
+			"topdomain": "elpais.com",
+			"campaignname": "America feed",
+			"sitename": "elpais.com",
+			"license": "9696BAACBCD5B9397687EC1A66AF1112796F4A0DD00CD450E1B059FA9E996334",
+			"feedurl": "http://elpais.com/rss/elpais/portada_america-f01.xml2",
+			"budget": 5000,
+			"active": 1,
+			"paused": 0,
+			"sponsored": 0,
+			"creationtime": "2017-06-12 16:20:41",
+			"pattern": "&id_externo_rsoc=zum"
+		},
+		{
+			"publisherid": "3d9656e9-b269-4a2b-bd75-58d1bb730917",
+			"SITEID": 4,
+			"FEEDID": 3,
+			"topdomain": "elpais.com",
+			"campaignname": "Verne 1",
+			"sitename": "elpais.com",
+			"license": "9696BAACBCD5B9397687EC1A66AF1112796F4A0DD00CD450E1B059FA9E996334",
+			"feedurl": "http://ep00.epimg.net/rss/verne/portada-f01.xml2",
+			"budget": 5000,
+			"active": 1,
+			"paused": 0,
+			"sponsored": 0,
+			"creationtime": "2017-08-31 17:28:32",
+			"pattern": "?id_externo_rsoc=zum"
+		},
+		{
+			"publisherid": "3d9656e9-b269-4a2b-bd75-58d1bb730917",
+			"SITEID": 4,
+			"FEEDID": 4,
+			"topdomain": "elpais.com",
+			"campaignname": "Verne 2",
+			"sitename": "elpais.com",
+			"license": "9696BAACBCD5B9397687EC1A66AF1112796F4A0DD00CD450E1B059FA9E996334",
+			"feedurl": "http://ep00.epimg.net/rss/verne/portada_mexico-f01.xml2",
+			"budget": 5000,
+			"active": 1,
+			"paused": 0,
+			"sponsored": 0,
+			"creationtime": "2017-08-31 17:32:14",
+			"pattern": "?id_externo_rsoc=zum"
+		}
+	]
+}

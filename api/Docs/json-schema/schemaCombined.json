@@ -1,0 +1,1065 @@
+{
+   "Alias": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "rss": {
+            "type": "string",
+            "x-ref": "RSS",
+            "description": "Refers to RSS",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "podcast": {
+            "type": "string",
+            "x-ref": "Podcast",
+            "description": "Refers to Podcast",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "alias": {
+            "type": "string"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "alias"
+      ]
+   },
+   "Article": {
+      "type": "object",
+      "properties": {
+         "rss": {
+            "type": "string",
+            "x-ref": "RSS",
+            "description": "Refers to RSS",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "duplicateOf": {
+            "type": "string",
+            "x-ref": "Article",
+            "description": "Refers to Article",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "url": {
+            "type": "string"
+         },
+         "canonicalUrl": {
+            "type": "string"
+         },
+         "fingerprint": {
+            "type": "string"
+         },
+         "guid": {
+            "type": "string"
+         },
+         "link": {
+            "type": "string"
+         },
+         "title": {
+            "type": "string"
+         },
+         "description": {
+            "type": "string",
+            "maxLength": 240,
+            "default": ""
+         },
+         "content": {
+            "type": "string",
+            "default": ""
+         },
+         "commentUrl": {
+            "type": "string",
+            "default": ""
+         },
+         "images": {
+            "title": "images",
+            "type": "object",
+            "properties": {
+               "featured": {
+                  "type": "string",
+                  "default": ""
+               },
+               "banner": {
+                  "type": "string",
+                  "default": ""
+               },
+               "favicon": {
+                  "type": "string",
+                  "default": ""
+               },
+               "og": {
+                  "type": "string",
+                  "default": ""
+               }
+            }
+         },
+         "publicationDate": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "enclosures": {
+            "type": "array",
+            "items": {
+               "title": "itemOf_enclosures",
+               "type": "object",
+               "properties": {
+                  "url": {
+                     "type": "string"
+                  },
+                  "type": {
+                     "type": "string"
+                  },
+                  "length": {
+                     "type": "string"
+                  },
+                  "_id": {
+                     "type": "string",
+                     "pattern": "^[0-9a-fA-F]{24}$"
+                  }
+               }
+            }
+         },
+         "likes": {
+            "type": "number",
+            "default": 0
+         },
+         "socialScore": {
+            "title": "socialScore",
+            "type": "object",
+            "properties": {
+               "reddit": {
+                  "type": "number"
+               },
+               "hackernews": {
+                  "type": "number"
+               }
+            }
+         },
+         "valid": {
+            "type": "boolean",
+            "default": true
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "rss",
+         "url",
+         "fingerprint",
+         "title"
+      ]
+   },
+   "Content": {
+      "type": "object",
+      "properties": {
+         "url": {
+            "type": "string"
+         },
+         "title": {
+            "type": "string"
+         },
+         "excerpt": {
+            "type": "string"
+         },
+         "content": {
+            "type": "string"
+         },
+         "image": {
+            "type": "string"
+         },
+         "publicationDate": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "enclosures": {
+            "type": "array",
+            "items": {}
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "url",
+         "title",
+         "excerpt",
+         "content"
+      ]
+   },
+   "Episode": {
+      "type": "object",
+      "properties": {
+         "podcast": {
+            "type": "string",
+            "x-ref": "Podcast",
+            "description": "Refers to Podcast",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "duplicateOf": {
+            "type": "string",
+            "x-ref": "Episode",
+            "description": "Refers to Episode",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "url": {
+            "type": "string"
+         },
+         "canonicalUrl": {
+            "type": "string"
+         },
+         "fingerprint": {
+            "type": "string"
+         },
+         "guid": {
+            "type": "string"
+         },
+         "link": {
+            "type": "string"
+         },
+         "enclosure": {
+            "type": "string"
+         },
+         "enclosures": {
+            "type": "array",
+            "items": {
+               "title": "itemOf_enclosures",
+               "type": "object",
+               "properties": {
+                  "url": {
+                     "type": "string"
+                  },
+                  "type": {
+                     "type": "string"
+                  },
+                  "length": {
+                     "type": "string"
+                  },
+                  "_id": {
+                     "type": "string",
+                     "pattern": "^[0-9a-fA-F]{24}$"
+                  }
+               }
+            }
+         },
+         "title": {
+            "type": "string"
+         },
+         "description": {
+            "type": "string",
+            "maxLength": 240,
+            "default": ""
+         },
+         "images": {
+            "title": "images",
+            "type": "object",
+            "properties": {
+               "featured": {
+                  "type": "string",
+                  "default": ""
+               },
+               "banner": {
+                  "type": "string",
+                  "default": ""
+               },
+               "favicon": {
+                  "type": "string",
+                  "default": ""
+               },
+               "og": {
+                  "type": "string",
+                  "default": ""
+               }
+            }
+         },
+         "duration": {
+            "type": "string",
+            "default": ""
+         },
+         "publicationDate": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "likes": {
+            "type": "number",
+            "default": 0
+         },
+         "valid": {
+            "type": "boolean",
+            "default": true
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "podcast",
+         "url",
+         "fingerprint",
+         "title"
+      ]
+   },
+   "Folder": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "rss": {
+            "type": "array",
+            "items": {
+               "type": "string",
+               "x-ref": "RSS",
+               "description": "Refers to RSS",
+               "pattern": "^[0-9a-fA-F]{24}$"
+            },
+            "minItems": 1
+         },
+         "podcast": {
+            "type": "array",
+            "items": {
+               "type": "string",
+               "x-ref": "Podcast",
+               "description": "Refers to Podcast",
+               "pattern": "^[0-9a-fA-F]{24}$"
+            },
+            "minItems": 1
+         },
+         "name": {
+            "type": "string"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "name"
+      ]
+   },
+   "Follow": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "followee": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "podcast": {
+            "type": "string",
+            "x-ref": "Podcast",
+            "description": "Refers to Podcast",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "rss": {
+            "type": "string",
+            "x-ref": "RSS",
+            "description": "Refers to RSS",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "feed": {
+            "type": "string",
+            "enum": [
+               "rss",
+               "podcast",
+               "timeline"
+            ]
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user"
+      ]
+   },
+   "Listen": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "episode": {
+            "type": "string",
+            "x-ref": "Episode",
+            "description": "Refers to Episode",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "duration": {
+            "type": "number",
+            "default": 0
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "episode",
+         "duration"
+      ]
+   },
+   "Note": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "episode": {
+            "type": "string",
+            "x-ref": "Episode",
+            "description": "Refers to Episode",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "article": {
+            "type": "string",
+            "x-ref": "Article",
+            "description": "Refers to Article",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "start": {
+            "type": "number"
+         },
+         "end": {
+            "type": "number"
+         },
+         "text": {
+            "type": "string"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "start",
+         "end"
+      ]
+   },
+   "Pin": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "article": {
+            "type": "string",
+            "x-ref": "Article",
+            "description": "Refers to Article",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "episode": {
+            "type": "string",
+            "x-ref": "Episode",
+            "description": "Refers to Episode",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "url": {
+            "type": "string"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user"
+      ]
+   },
+   "Playlist": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "name": {
+            "type": "string"
+         },
+         "episodes": {
+            "type": "array",
+            "items": {
+               "type": "string",
+               "x-ref": "Episode",
+               "description": "Refers to Episode",
+               "pattern": "^[0-9a-fA-F]{24}$"
+            },
+            "minItems": 1
+         },
+         "likes": {
+            "type": "number",
+            "default": 0
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "name"
+      ]
+   },
+   "Podcast": {
+      "type": "object",
+      "properties": {
+         "duplicateOf": {
+            "type": "string",
+            "x-ref": "Podcast",
+            "description": "Refers to Podcast",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "url": {
+            "type": "string"
+         },
+         "canonicalUrl": {
+            "type": "string"
+         },
+         "feedUrl": {
+            "type": "string"
+         },
+         "feedUrls": {
+            "type": "array",
+            "items": {
+               "type": "string"
+            }
+         },
+         "fingerprint": {
+            "type": "string"
+         },
+         "title": {
+            "type": "string"
+         },
+         "description": {
+            "type": "string",
+            "default": ""
+         },
+         "summary": {
+            "type": "string",
+            "default": ""
+         },
+         "categories": {
+            "type": "string",
+            "default": ""
+         },
+         "featured": {
+            "type": "boolean",
+            "default": false
+         },
+         "images": {
+            "title": "images",
+            "type": "object",
+            "properties": {
+               "featured": {
+                  "type": "string",
+                  "default": ""
+               },
+               "banner": {
+                  "type": "string",
+                  "default": ""
+               },
+               "favicon": {
+                  "type": "string",
+                  "default": ""
+               },
+               "og": {
+                  "type": "string",
+                  "default": ""
+               }
+            }
+         },
+         "public": {
+            "type": "boolean",
+            "default": true
+         },
+         "publicationDate": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "valid": {
+            "type": "boolean",
+            "default": true
+         },
+         "lastScraped": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "interest": {
+            "type": "string",
+            "default": ""
+         },
+         "language": {
+            "type": "string",
+            "default": ""
+         },
+         "followerCount": {
+            "type": "number",
+            "default": 0
+         },
+         "postCount": {
+            "type": "number",
+            "default": 0
+         },
+         "consecutiveScrapeFailures": {
+            "type": "number",
+            "default": 0
+         },
+         "guidStability": {
+            "type": "string",
+            "enum": [
+               "STABLE",
+               "UNSTABLE",
+               "UNCHECKED"
+            ],
+            "default": "UNCHECKED"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "feedUrl",
+         "title"
+      ]
+   },
+   "Rss": {
+      "type": "object",
+      "properties": {
+         "duplicateOf": {
+            "type": "string",
+            "x-ref": "RSS",
+            "description": "Refers to RSS",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "url": {
+            "type": "string"
+         },
+         "canonicalUrl": {
+            "type": "string"
+         },
+         "feedUrl": {
+            "type": "string"
+         },
+         "feedUrls": {
+            "type": "array",
+            "items": {
+               "type": "string"
+            }
+         },
+         "fingerprint": {
+            "type": "string"
+         },
+         "title": {
+            "type": "string"
+         },
+         "description": {
+            "type": "string",
+            "default": ""
+         },
+         "categories": {
+            "type": "string",
+            "default": ""
+         },
+         "featured": {
+            "type": "boolean",
+            "default": false
+         },
+         "images": {
+            "title": "images",
+            "type": "object",
+            "properties": {
+               "featured": {
+                  "type": "string",
+                  "default": ""
+               },
+               "banner": {
+                  "type": "string",
+                  "default": ""
+               },
+               "favicon": {
+                  "type": "string",
+                  "default": ""
+               },
+               "og": {
+                  "type": "string",
+                  "default": ""
+               }
+            }
+         },
+         "public": {
+            "type": "boolean",
+            "default": true
+         },
+         "publicationDate": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "valid": {
+            "type": "boolean",
+            "default": true
+         },
+         "lastScraped": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "likes": {
+            "type": "number",
+            "default": 0
+         },
+         "followerCount": {
+            "type": "number",
+            "default": 0
+         },
+         "postCount": {
+            "type": "number",
+            "default": 0
+         },
+         "summary": {
+            "type": "string",
+            "default": ""
+         },
+         "interest": {
+            "type": "string",
+            "default": ""
+         },
+         "language": {
+            "type": "string",
+            "default": ""
+         },
+         "consecutiveScrapeFailures": {
+            "type": "number",
+            "default": 0
+         },
+         "guidStability": {
+            "type": "string",
+            "enum": [
+               "STABLE",
+               "UNSTABLE",
+               "UNCHECKED"
+            ],
+            "default": "UNCHECKED"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "feedUrl",
+         "title"
+      ]
+   },
+   "Tag": {
+      "type": "object",
+      "properties": {
+         "user": {
+            "type": "string",
+            "x-ref": "User",
+            "description": "Refers to User",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "episode": {
+            "type": "array",
+            "items": {
+               "type": "string",
+               "x-ref": "Episode",
+               "description": "Refers to Episode",
+               "pattern": "^[0-9a-fA-F]{24}$"
+            },
+            "minItems": 1
+         },
+         "article": {
+            "type": "array",
+            "items": {
+               "type": "string",
+               "x-ref": "Article",
+               "description": "Refers to Article",
+               "pattern": "^[0-9a-fA-F]{24}$"
+            },
+            "minItems": 1
+         },
+         "name": {
+            "type": "string"
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "user",
+         "name"
+      ]
+   },
+   "User": {
+      "type": "object",
+      "properties": {
+         "email": {
+            "type": "string"
+         },
+         "username": {
+            "type": "string"
+         },
+         "password": {
+            "type": "string"
+         },
+         "name": {
+            "type": "string"
+         },
+         "bio": {
+            "type": "string",
+            "default": ""
+         },
+         "url": {
+            "type": "string",
+            "default": ""
+         },
+         "twitter": {
+            "type": "string",
+            "default": ""
+         },
+         "background": {
+            "type": "number",
+            "default": 1
+         },
+         "interests": {},
+         "preferences": {
+            "title": "preferences",
+            "type": "object",
+            "properties": {
+               "notifications": {
+                  "title": "notifications",
+                  "type": "object",
+                  "properties": {
+                     "daily": {
+                        "type": "boolean",
+                        "default": false
+                     },
+                     "weekly": {
+                        "type": "boolean",
+                        "default": true
+                     },
+                     "follows": {
+                        "type": "boolean",
+                        "default": true
+                     }
+                  }
+               }
+            }
+         },
+         "recoveryCode": {
+            "type": "string",
+            "default": ""
+         },
+         "active": {
+            "type": "boolean",
+            "default": true
+         },
+         "admin": {
+            "type": "boolean",
+            "default": false
+         },
+         "_id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+         },
+         "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "createdAt": {
+            "type": "string",
+            "format": "date-time"
+         },
+         "__v": {
+            "type": "number"
+         }
+      },
+      "required": [
+         "email",
+         "username",
+         "password",
+         "name"
+      ]
+   }
+}

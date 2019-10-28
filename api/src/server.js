@@ -8,11 +8,16 @@ import cors from 'cors';
 import compression from 'compression';
 import jwt from 'express-jwt';
 import limit from 'express-rate-limit';
-
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+// import { makeExecutableSchema } from 'graphql-tools';
 import logger from './utils/logger';
 import { startSampling } from './utils/watchdog';
 import { setupExpressRequestHandler, setupExpressErrorHandler } from './utils/errors';
 import User from './models/user';
+import { graphqlSchema as schema } from './utils/graphql';
+// import { connection as mysqlConnect, query as mysqlQuery } from './utils/mysql';
+
+// console.log(mysqlConnect, mysqlQuery);
 
 const api = express();
 
@@ -22,6 +27,12 @@ api.use(cors({ maxAge: 1728000 }));
 api.use(compression());
 api.use(bodyParser.urlencoded({ extended: true }));
 api.use(bodyParser.json({ limit: '5mb' }));
+
+// The GraphQL endpoint
+api.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+
+// GraphiQL, a visual editor for queries
+api.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 api.enable('trust proxy');
 api.use(

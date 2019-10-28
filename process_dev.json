@@ -1,6 +1,6 @@
 {
 	"apps": [
-		{
+    {
 			"name": "api",
 			"cwd": "api/src",
 			"interpreter": "babel-node",
